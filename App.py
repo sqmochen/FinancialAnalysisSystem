@@ -1072,7 +1072,19 @@ def main():
             
             with tab1:
                 st.subheader("損益表分析")
-                
+
+                # 損益表關鍵術語說明
+                with st.expander("📖 損益表關鍵術語說明", expanded=False):
+                    st.markdown("""
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| Revenue | 營業收入 | 企業獲利源頭，衡量成長與市佔的指標 |
+| Gross Profit | 毛利 | 營收扣除生產成本後的利潤 |
+| Operating Income | 營業利益 | 扣除營業費用後的本業獲利能力 |
+| Net Income | 淨利潤 | 最終稅後獲利，股東真正入袋的錢 |
+| EPS | 每股盈餘 | 每一股可分配到的獲利金額 |
+                    """)
+
                 try:
                     if not income_df.empty:
                         # 創建圖表
@@ -1092,7 +1104,21 @@ def main():
             
             with tab2:
                 st.subheader("資產負債表分析")
-                
+
+                # 資產負債表關鍵術語說明
+                with st.expander("📖 資產負債表關鍵術語說明", expanded=False):
+                    st.markdown("""
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| Total Assets | 總資產 | 企業擁有的所有資源總和 |
+| Total Liabilities | 總負債 | 企業對外欠款的所有義務總和 |
+| Stockholders Equity | 股東權益 | 總資產扣除負債後屬於股東的部分 |
+| Current Assets | 流動資產 | 一年內可變現的資產，如現金存貨 |
+| Current Liabilities | 流動負債 | 一年內需償還的短期債務 |
+| Retained Earnings | 保留盈餘 | 歷年累積未分配的獲利 |
+| Long-term Debt | 長期負債 | 一年以上才需償還的長期借款 |
+                    """)
+
                 try:
                     if not balance_df.empty:
                         # 創建圖表
@@ -1112,7 +1138,19 @@ def main():
             
             with tab3:
                 st.subheader("現金流量表分析")
-                
+
+                # 現金流量表關鍵術語說明
+                with st.expander("📖 現金流量表關鍵術語說明", expanded=False):
+                    st.markdown("""
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| Operating Cash Flow | 營運現金流 | 本業實際收到的現金，越高越健康 |
+| Investing Cash Flow | 投資現金流 | 購買或出售資產產生的現金變動 |
+| Financing Cash Flow | 融資現金流 | 借款或股利發放造成的現金變動 |
+| Free Cash Flow | 自由現金流 | 營運現金流扣除資本支出後餘額 |
+| Capital Expenditure | 資本支出 | 購置廠房設備等長期資產的花費 |
+                    """)
+
                 try:
                     if not cash_df.empty:
                         # 創建圖表
@@ -1132,7 +1170,42 @@ def main():
             
             with tab4:
                 st.subheader("四階段財報分析")
-                
+
+                # 四階段財報分析關鍵術語說明
+                with st.expander("📖 四階段分析關鍵術語說明", expanded=False):
+                    st.markdown("""
+**📈 Piotroski F-Score 相關**
+
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| Piotroski F-Score | 財務體質評分 | 9項指標綜合評分，分數越高越健康 |
+| ROA | 資產報酬率 | 每單位資產創造的獲利能力 |
+
+**⚖️ Altman Z-Score 相關**
+
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| Altman Z-Score | 破產風險評分 | 分數越高財務越安全，低於1.81需警戒 |
+| EBIT | 息前稅前利潤 | 排除利息與稅負後的核心獲利 |
+| Working Capital | 營運資本 | 流動資產扣除流動負債的短期資金 |
+| Market Capitalization | 市值 | 股價乘以股數的公司市場總價值 |
+
+**🔍 杜邦分析相關**
+
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| ROE | 股東權益報酬率 | 股東每元投資能獲得多少報酬 |
+| Net Margin | 淨利率 | 每元營收最終留下的獲利比例 |
+| Asset Turnover | 資產周轉率 | 資產創造營收的效率指標 |
+| Equity Multiplier | 權益乘數 | 反映財務槓桿程度，越高負債越多 |
+
+**💰 現金流分析相關**
+
+| 術語 | 中文名稱 | 說明 |
+|------|---------|------|
+| CF Quality Ratio | 現金流品質比率 | 營運現金流與淨利比，越高獲利越真實 |
+                    """)
+
                 try:
                     # 數據品質檢查
                     quality_report = analyze_data_quality(financial_data, finmind_data.get('raw_finmind_data', {}))
@@ -1350,7 +1423,18 @@ def main():
             
             with tab5:
                 st.subheader("AI 綜合財務分析")
-                
+
+                # AI分析頁籤關鍵術語說明
+                with st.expander("📖 AI分析頁籤術語說明", expanded=False):
+                    st.markdown("""
+| 分析項目 | 說明 |
+|---------|------|
+| Piotroski F-Score 解讀 | AI解析9項財務指標的投資意義 |
+| Altman Z-Score 風險評估 | AI判斷破產風險等級與各要素影響 |
+| 杜邦分析趨勢洞察 | AI解讀ROE三因子變化與驅動原因 |
+| 現金流結構分析 | AI評估現金流品質與資本支出模式 |
+                    """)
+
                 # 檢查是否已完成四階段分析
                 try:
                     # 重新計算所有分析結果用於AI分析
